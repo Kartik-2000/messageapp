@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorAccent"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+   <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+       android:id="@+id/maon_app_bar"
+       android:background="@color/colorPrimary"
+       android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+       android:layout_width="match_parent"
+       android:layout_height="?attr/actionBarSize">
+
+   </androidx.appcompat.widget.Toolbar>
+
+
+   <com.google.android.material.tabs.TabLayout
+       android:id="@+id/main_tabs"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+       android:layout_below="@+id/maon_app_bar"
+       android:background="@color/colorPrimary">
+
+
+
+
+   </com.google.android.material.tabs.TabLayout>
+
+
+
+   <androidx.viewpager.widget.ViewPager
+       android:id="@+id/main_tabs_pager"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/main_tabs"
+       ></androidx.viewpager.widget.ViewPager>
+
+
+
+
+
+
+
+
+</RelativeLayout>
