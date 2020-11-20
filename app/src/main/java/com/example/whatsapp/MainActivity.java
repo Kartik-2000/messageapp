@@ -182,9 +182,9 @@ SendUserToSettingsActivity();
 
     private void SendUserToSettingsActivity() {
         Intent settingIntent=new Intent(MainActivity.this, SettingsActivity.class);
-        settingIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
         startActivity(settingIntent);
-        finish();
+
     }
 
     private void SendUserToFindFriendsActivity() {

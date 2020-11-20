@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,18 +59,31 @@ public class FindFriendsActivity extends AppCompatActivity {
 
        FirebaseRecyclerAdapter<Contacts,FindFriendViewHolder> adapter=new FirebaseRecyclerAdapter<Contacts, FindFriendViewHolder>(options) {
            @Override
-           protected void onBindViewHolder(@NonNull FindFriendViewHolder holder, int position, @NonNull Contacts model) {
+           protected void onBindViewHolder(@NonNull FindFriendViewHolder holder, final int position, @NonNull Contacts model) {
                holder.userName.setText(model.getName());
                holder.userStatus.setText(model.getStstus());
                Picasso.get().load(model.getImage()).placeholder(R.drawable.profile_image).into(holder.profileImage);
+
+               holder.itemView.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View view) {
+                       String visit_user_id = getRef(position).getKey();
+
+                       Intent profileIntent = new Intent(FindFriendsActivity.this, ProfileActivity.class);
+                       profileIntent.putExtra("visit_user_id", visit_user_id);
+                       startActivity(profileIntent);
+                   }
+               });
+
+
 
            }
 
            @NonNull
            @Override
-           public FindFriendViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+           public FindFriendViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
-               View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.users_display_layout, parent, false);
+               View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.users_display_layout, viewGroup, false);
                FindFriendViewHolder viewHolder = new FindFriendViewHolder(view);
                return viewHolder;
            }

@@ -76,8 +76,13 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+                                String deviceToken = FirebaseInstanceId.getInstance().getToken();
                                 String currenrUserId=mAuth.getCurrentUser().getUid();
                                 RootRef.child("Users").child(currenrUserId).setValue("");
+
+
+                                RootRef.child("Users").child(currenrUserId).child("device_token")
+                                        .setValue(deviceToken);
 
                                 SendUserToMainActivity();
                                 Toast.makeText(RegisterActivity.this, "Account Created Successfully...", Toast.LENGTH_SHORT).show();
