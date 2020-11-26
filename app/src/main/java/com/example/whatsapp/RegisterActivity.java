@@ -1,8 +1,5 @@
 package com.example.whatsapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +7,11 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -76,13 +75,13 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                String deviceToken = FirebaseInstanceId.getInstance().getToken();
+                               /* String deviceToken = FirebaseInstanceId.getInstance().getToken();
                                 String currenrUserId=mAuth.getCurrentUser().getUid();
                                 RootRef.child("Users").child(currenrUserId).setValue("");
 
 
                                 RootRef.child("Users").child(currenrUserId).child("device_token")
-                                        .setValue(deviceToken);
+                                        .setValue(deviceToken);*/
 
                                 SendUserToMainActivity();
                                 Toast.makeText(RegisterActivity.this, "Account Created Successfully...", Toast.LENGTH_SHORT).show();

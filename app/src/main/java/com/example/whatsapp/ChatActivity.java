@@ -1,11 +1,5 @@
 package com.example.whatsapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -15,7 +9,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -43,7 +42,7 @@ public class ChatActivity extends AppCompatActivity {
     private TextView userName, userLastSeen;
     private CircleImageView userImage;
 
-    private Toolbar ChatToolBar;
+    androidx.appcompat.widget.Toolbar ChatToolBar;
     private FirebaseAuth mAuth;
     private DatabaseReference RootRef;
 
@@ -99,7 +98,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private void IntializeControllers()
     {
-        ChatToolBar = (Toolbar) findViewById(R.id.chat_toolbar);
+        ChatToolBar =  findViewById(R.id.chat_toolbar);
         setSupportActionBar(ChatToolBar);
 
         ActionBar actionBar = getSupportActionBar();

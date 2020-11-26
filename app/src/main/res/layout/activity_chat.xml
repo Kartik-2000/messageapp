@@ -7,10 +7,15 @@
     android:background="@android:color/darker_gray"
     tools:context=".ChatActivity">
 
-    <include
+    <androidx.appcompat.widget.Toolbar
+
         android:id="@+id/chat_toolbar"
-        layout="@layout/app_bar_layout">
-    </include>
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.appcompat.widget.Toolbar>
 
 
     <androidx.recyclerview.widget.RecyclerView
